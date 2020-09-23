@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="monViewModel"
+            type="com.gauthier.conversion.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.MainFragment">
+
+        <EditText
+            android:id="@+id/texteResultat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="101dp"
+            android:hint="Celcius"
+            android:text="@{String.valueOf(monViewModel.resultat)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fahrenheitText"
+            app:layout_constraintVertical_bias="0.025" />
+
+        <EditText
+            android:id="@+id/fahrenheitText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="210dp"
+            android:ems="10"
+            android:hint="Fahrenheit"
+            android:inputType="numberDecimal"
+            android:text="@={monViewModel.fahrenheit}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/conversionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="131dp"
+            android:layout_marginBottom="177dp"
+            android:onClick="@{()->monViewModel.calcule()}"
+            android:text="Conversion ->"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/texteResultat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
